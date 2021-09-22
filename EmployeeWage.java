@@ -4,33 +4,33 @@ import java.util.Random;
 
 public class EmployeeWage {
 
-        public static final int IS_FULL_TIME = 2;
-        public static final int IS_PART_TIME = 1;
-        public static final int EMP_RATE_PER_HOUR = 20;
-
 	public static void main(String[] args) {
-		int empHours = 0;
-		int empWage = 0;
-		
-		Random random = new Random();
-		int empCheck = random.nextInt(3);
-		switch (empCheck){
-		case IS_FULL_TIME:
-			empHours = 8;
+
+		int PartTimeHours = 4;
+		int FullDay = 8;
+		int WageParHour = 20;
+		int WorkingDayParMonth = 20;
+		final int empPresent = 1;
+		final int empPartTime = 2;
+		int dailyWage = 0;
+
+		int empCheck = (int)Math.floor(Math.random() * 10) % 3;
+
+		switch (empCheck) {
+		case empPresent:
+			dailyWage = FullDay*WageParHour*WorkingDayParMonth;
+			System.out.println("Employee is Present");
+			System.out.println("Employee Daily 20 Day Wage Is : "+ dailyWage);
 			break;
-		case IS_PART_TIME:
-			empHours = 4;
+		case empPartTime:{
+			dailyWage = PartTimeHours*WageParHour*WorkingDayParMonth;
+			System.out.println("Employee Part Time is Present");
+			System.out.println("Employee Part Time 20 Day Wage Is : "+ dailyWage);
 			break;
-		default:
-			empHours = 0;
 		}
-		empWage = empHours * EMP_RATE_PER_HOUR;
-		System.out.println("The daily wages of an employee is : " + empWage);
+		default:
+			System.out.println("Employee is Absent");
+			break;
+		}
 	}
 }
-
-
-
-
-
-
