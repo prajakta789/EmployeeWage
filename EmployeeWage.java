@@ -6,31 +6,44 @@ public class EmployeeWage {
 
 	public static void main(String[] args) {
 
-		int PartTimeHours = 4;
-		int FullDay = 8;
-		int WageParHour = 20;
-		int WorkingDayParMonth = 20;
-		final int empPresent = 1;
-		final int empPartTime = 2;
-		int dailyWage = 0;
+		final int IS_FULL_TIME = 2;
+		final int IS_PART_TIME = 1;
+		final int EMP_RATE_PER_HOUR = 20;
+		final int NO_OF_WORKING_DAYS = 20;
+		final int MAX_HRS_IN_MONTH = 10;
+		
+		int empHours = 0;
+		int empWage = 0;
+		int totalEmployeeWage = 0;
+		int totalEmpHrs = 0;
+		int totalWorkingDays = 0;
 
-		int empCheck = (int)Math.floor(Math.random() * 10) % 3;
 
-		switch (empCheck) {
-		case empPresent:
-			dailyWage = FullDay*WageParHour*WorkingDayParMonth;
-			System.out.println("Employee is Present");
-			System.out.println("Employee Daily 20 Day Wage Is : "+ dailyWage);
-			break;
-		case empPartTime:{
-			dailyWage = PartTimeHours*WageParHour*WorkingDayParMonth;
-			System.out.println("Employee Part Time is Present");
-			System.out.println("Employee Part Time 20 Day Wage Is : "+ dailyWage);
-			break;
+		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NO_OF_WORKING_DAYS){
+			totalWorkingDays++;
+			Random random = new Random();
+			int empCheck = random.nextInt(3);
+			switch (empCheck){
+			case IS_FULL_TIME:
+				empHours = 8;
+				System.out.print("The wages of Full Time employee is : ");
+				break;
+			case IS_PART_TIME:
+				empHours = 4;
+				System.out.print("The wages of Part time employee is : ");
+				break;
+			default:
+				empHours = 0;
+				System.out.print("The wages of no work employee is : ");
+			}
+			empWage = empHours * EMP_RATE_PER_HOUR;
+			totalEmployeeWage += empWage;
+			totalEmpHrs += empHours;
+			System.out.println(empWage);
 		}
-		default:
-			System.out.println("Employee is Absent");
-			break;
-		}
+		System.out.println();
+		System.out.print("The total wages of all the emplpoyee for 20 days or 10 hours is : " + totalEmployeeWage);
 	}
 }
+
+
