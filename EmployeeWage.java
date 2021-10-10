@@ -4,46 +4,47 @@ import java.util.Random;
 
 public class EmployeeWage {
 
-	public static void main(String[] args) {
 
-		final int IS_FULL_TIME = 2;
-		final int IS_PART_TIME = 1;
-		final int EMP_RATE_PER_HOUR = 20;
-		final int NO_OF_WORKING_DAYS = 20;
-		final int MAX_HRS_IN_MONTH = 10;
+	public static final int IS_FULLTIME = 1;
+	public static final int IS_PARTTIME = 2;
+	public static final int Emp_Rate_PerHr = 20;
+	public static final int NO_WORKINGDAYS = 20;
+	public static final int MAX_HRS_MONTH = 100;
+
+	public static int computeWage() {
 		
-		int empHours = 0;
+		int empHrs = 0;
 		int empWage = 0;
-		int totalEmployeeWage = 0;
+		int totalEmpWage = 0;
 		int totalEmpHrs = 0;
 		int totalWorkingDays = 0;
 
-
-		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NO_OF_WORKING_DAYS){
+		while (totalEmpHrs <= MAX_HRS_MONTH && totalWorkingDays < NO_WORKINGDAYS) {
 			totalWorkingDays++;
 			Random random = new Random();
 			int empCheck = random.nextInt(3);
-			switch (empCheck){
-			case IS_FULL_TIME:
-				empHours = 8;
-				System.out.print("The wages of Full Time employee is : ");
+			switch (empCheck) {
+			case IS_FULLTIME:
+				empHrs = 8;
 				break;
-			case IS_PART_TIME:
-				empHours = 4;
-				System.out.print("The wages of Part time employee is : ");
+			case IS_PARTTIME: 
+				empHrs = 4;
 				break;
-			default:
-				empHours = 0;
-				System.out.print("The wages of no work employee is : ");
+			default:  
+				empHrs = 0;
 			}
-			empWage = empHours * EMP_RATE_PER_HOUR;
-			totalEmployeeWage += empWage;
-			totalEmpHrs += empHours;
-			System.out.println(empWage);
+			empWage = Emp_Rate_PerHr * empHrs;
+			totalEmpHrs += empHrs;
+			System.out.println("Day : " + totalWorkingDays + " : Employee worked : " + empHrs + " Hours " +
+					", Employee Wage : " + empWage);
 		}
-		System.out.println();
-		System.out.print("The total wages of all the emplpoyee for 20 days or 10 hours is : " + totalEmployeeWage);
+		totalEmpWage = totalEmpHrs * Emp_Rate_PerHr;
+		System.out.println("Total Wages is : " + totalEmpWage);
+		return totalEmpWage;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Welcome To Employee Wage Computation Program");
+		computeWage();
 	}
 }
-
-
