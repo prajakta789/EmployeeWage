@@ -2,63 +2,68 @@ package com.bridgelabz.Employee_wage;
 
 public class CompanyInfo {
 
-	private String companyName;
-    private int empRatePerHour;
-    private int noOfWorkingDays;
-    private int maxHoursPerMonth;
-    private int totalEmpWage;
+	interface IEmployeeWage {
+	    public void addCompanyInfo(String companyName, int empRatePerHour, int noOfWorkingDays, int maxHoursPerMonth);
+	    public void computeEmpWage();
+	}
 
-    public CompanyInfo(String companyName, int empRatePerHour, int noOfWorkingDays, int maxHoursPerMonth) {
-        this.companyName = companyName;
-        this.empRatePerHour = empRatePerHour;
-        this.noOfWorkingDays = noOfWorkingDays;
-        this.maxHoursPerMonth = maxHoursPerMonth;
-    }
+	
+	    private String companyName;
+	    private int empRatePerHour;
+	    private int noOfWorkingDays;
+	    private int maxHoursPerMonth;
+	    private int totalEmpWage;
 
-    public void setTotalEmpWage(int totalEmpWage) {
-        this.totalEmpWage = totalEmpWage;
-    }
+	    public CompanyInfo(String companyName, int empRatePerHour, int noOfWorkingDays, int maxHoursPerMonth) {
+	        this.companyName = companyName;
+	        this.empRatePerHour = empRatePerHour;
+	        this.noOfWorkingDays = noOfWorkingDays;
+	        this.maxHoursPerMonth = maxHoursPerMonth;
+	    }
 
-    public String getCompanyName() {
-        return companyName;
-    }
+	    public void setTotalEmpWage(int totalEmpWage) {
+	        this.totalEmpWage = totalEmpWage;
+	    }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
+	    public String getCompanyName() {
+	        return companyName;
+	    }
 
-    public int getEmpRatePerHour() {
-        return empRatePerHour;
-    }
+	    public void setCompanyName(String companyName) {
+	        this.companyName = companyName;
+	    }
 
-    public void setEmpRatePerHour(int empRatePerHour) {
-        this.empRatePerHour = empRatePerHour;
-    }
+	    public int getEmpRatePerHour() {
+	        return empRatePerHour;
+	    }
 
-    public int getNoOfWorkingDays() {
-        return noOfWorkingDays;
-    }
+	    public void setEmpRatePerHour(int empRatePerHour) {
+	        this.empRatePerHour = empRatePerHour;
+	    }
 
-    public void setNoOfWorkingDays(int noOfWorkingDays) {
-        this.noOfWorkingDays = noOfWorkingDays;
-    }
+	    public int getNoOfWorkingDays() {
+	        return noOfWorkingDays;
+	    }
 
-    public int getMaxHoursPerMonth() {
-        return maxHoursPerMonth;
-    }
+	    public void setNoOfWorkingDays(int noOfWorkingDays) {
+	        this.noOfWorkingDays = noOfWorkingDays;
+	    }
 
-    public void setMaxHoursPerMonth(int maxHoursPerMonth) {
-        this.maxHoursPerMonth = maxHoursPerMonth;
-    }
-    @Override
-    public String toString() {
-        return "CompanyInfo: " +
-                "companyName = " + companyName + '\'' +
-                ", empRatePerHour = " + empRatePerHour +
-                ", numOfWorkingDays = " + noOfWorkingDays +
-                ", maxHrsPerMonth = " + maxHoursPerMonth +
-                ", totalWage = " + totalEmpWage;
+	    public int getMaxHoursPerMonth() {
+	        return maxHoursPerMonth;
+	    }
 
-    }
-}
+	    public void setMaxHoursPerMonth(int maxHoursPerMonth) {
+	        this.maxHoursPerMonth = maxHoursPerMonth;
+	    }
+	    @Override
+	    public String toString() {
+	        return "CompanyInfo: " +
+	                "companyName = " + companyName + '\'' +
+	                ", empRatePerHour = " + empRatePerHour +
+	                ", numOfWorkingDays = " + noOfWorkingDays +
+	                ", maxHrsPerMonth = " + maxHoursPerMonth +
+	                ", totalWage = " + totalEmpWage;
 
+	    }
+	}
